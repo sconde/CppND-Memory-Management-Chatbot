@@ -43,6 +43,65 @@ ChatBot::~ChatBot()
 }
 
 //// STUDENT CODE
+ChatLogic *ChatBot::GetChatLogicHandle() { return std::move(_chatLogic); }
+
+ChatBot::ChatBot(ChatBot &src) {
+// copy constructor
+_image = new wxBitmap();
+*_image = *src._image;
+
+_chatLogic = src._chatLogic;
+_chatLogic->SetChatbotHandle(this);
+
+_rootNode = src._rootNode;
+}
+
+/*
+// copy assignment operator
+ChatBot &operator=(ChatBot &src) {
+
+  if ( this != &src ) {
+    _image = new wxBitmap();
+    *_image = *src._image;
+
+    _chatLogic = src._chatLogic;
+    _chatLogic->SetChatbotHandle(this);
+
+    _rootNode = src._rootNode;
+  }
+  return *this;
+}
+
+// move constructor
+ChatBot::ChatBot(ChatBot && src) {
+  _image = new wxBitmap();
+  *_image = *src._image;
+
+  _chatLogic = src._chatLogic;
+  _chatLogic->SetChatbotHandle(this);
+
+  _rootNode = src._rootNode;
+  src._image = nullptr;
+  src._chatLogic = nullptr;
+}
+
+// move assignment operator
+ChatBot::ChatBot &operator=(ChatBot &&src) {
+
+  if ( this != &src ) {
+    _image = new wxBitmap();
+    *_image = *src._image;
+
+    _chatLogic = src._chatLogic;
+    _chatLogic->SetChatbotHandle(this);
+
+    _rootNode = src._rootNode;
+    src._image = nullptr;
+    src._chatLogic = nullptr;
+  }
+  return *this;
+}
+*/
 ////
 
 ////

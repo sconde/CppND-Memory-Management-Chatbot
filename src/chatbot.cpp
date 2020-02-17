@@ -56,6 +56,19 @@ _chatLogic->SetChatbotHandle(this);
 _rootNode = src._rootNode;
 }
 
+// move constructor
+ChatBot::ChatBot(ChatBot && src) {
+  _image = new wxBitmap();
+  *_image = *src._image;
+
+  _chatLogic = src._chatLogic;
+  _chatLogic->SetChatbotHandle(this);
+
+  _rootNode = src._rootNode;
+  src._image = nullptr;
+  src._chatLogic = nullptr;
+}
+
 /*
 // copy assignment operator
 ChatBot &operator=(ChatBot &src) {
@@ -72,18 +85,6 @@ ChatBot &operator=(ChatBot &src) {
   return *this;
 }
 
-// move constructor
-ChatBot::ChatBot(ChatBot && src) {
-  _image = new wxBitmap();
-  *_image = *src._image;
-
-  _chatLogic = src._chatLogic;
-  _chatLogic->SetChatbotHandle(this);
-
-  _rootNode = src._rootNode;
-  src._image = nullptr;
-  src._chatLogic = nullptr;
-}
 
 // move assignment operator
 ChatBot::ChatBot &operator=(ChatBot &&src) {

@@ -31,10 +31,10 @@ public:
     ChatLogic *GetChatLogicHandle();
 
     ChatBot(ChatBot &src);
+    ChatBot(ChatBot && src);
  /*   
     ChatBot &operator=(ChatBot &src);
 
-    ChatBot(ChatBot && src);
     ChatBot &operator=(ChatBot &&src);
 */
     ////

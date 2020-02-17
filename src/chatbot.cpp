@@ -46,6 +46,7 @@ ChatBot::~ChatBot()
 ChatLogic *ChatBot::GetChatLogicHandle() { return std::move(_chatLogic); }
 
 ChatBot::ChatBot(ChatBot &src) {
+    std::cout << "ChatBot Copy Ctor" << std::endl;
 // copy constructor
 _image = new wxBitmap();
 *_image = *src._image;
@@ -58,6 +59,7 @@ _rootNode = src._rootNode;
 
 // move constructor
 ChatBot::ChatBot(ChatBot && src) {
+    std::cout << "ChatBot Move Ctor" << std::endl;
   _image = new wxBitmap();
   *_image = *src._image;
 
@@ -72,6 +74,7 @@ ChatBot::ChatBot(ChatBot && src) {
 
 // copy assignment operator
 ChatBot &ChatBot::operator=(ChatBot &src) {
+    std::cout << "ChatBot Copy Assignment" << std::endl;
 
   if ( this != &src ) {
     _image = new wxBitmap();
@@ -88,6 +91,7 @@ ChatBot &ChatBot::operator=(ChatBot &src) {
 
 // move assignment operator
 ChatBot &ChatBot::operator=(ChatBot &&src) {
+    std::cout << "ChatBot Move Assignment" << std::endl;
 
   if ( this != &src ) {
     _image = new wxBitmap();

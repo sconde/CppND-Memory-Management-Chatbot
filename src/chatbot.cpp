@@ -69,9 +69,9 @@ ChatBot::ChatBot(ChatBot && src) {
   src._chatLogic = nullptr;
 }
 
-/*
+
 // copy assignment operator
-ChatBot &operator=(ChatBot &src) {
+ChatBot &ChatBot::operator=(ChatBot &src) {
 
   if ( this != &src ) {
     _image = new wxBitmap();
@@ -87,7 +87,7 @@ ChatBot &operator=(ChatBot &src) {
 
 
 // move assignment operator
-ChatBot::ChatBot &operator=(ChatBot &&src) {
+ChatBot &ChatBot::operator=(ChatBot &&src) {
 
   if ( this != &src ) {
     _image = new wxBitmap();
@@ -102,7 +102,7 @@ ChatBot::ChatBot &operator=(ChatBot &&src) {
   }
   return *this;
 }
-*/
+
 ////
 
 ////
